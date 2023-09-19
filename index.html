@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulatod</title>
+    <script src="kalkulator.js"></script>
+
+    <style>
+        
+        body
+        {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .pertama
+        {
+            display: flex;
+            width: 100vh;
+            height: 20vh;
+            background-color: red;
+
+            justify-content:center ;
+            align-items: center;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+
+        .kedua
+        {
+            display: flex;
+            width: 100vh;
+            height: 20vh;
+            background-color: antiquewhite;
+            justify-content: center;
+            align-items: center;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="pertama">
+    <form name="kalkulatod">
+    <ul>
+    <li> <input type="number"  name="angka1"></li> 
+    <li><input type="number"  name="angka2"></li> 
+    <li>
+    <input class="tombol" type="button" onclick="tambah()" value="+">
+    <input class="tombol" type="button" onclick="kurang()" value="-">
+    <input class="tombol" type="button" onclick="bagi()" value="/">
+    <input class="tombol" type="button" onclick="kali()" value="x">
+    </li>
+    <li><input type="number" name="hasil" value="hasil"></li> 
+    </ul>
+
+    </form>
+    </div>
+
+    <div class="kedua">
+        <input type="number" id="angka1" placeholder="Number 1">
+        
+        <select id="operator">
+            <option value="tambah">+</option>
+            <option value="kurang">-</option>
+            <option value="kali">*</option>
+            <option value="bagi">/</option>
+        </select>
+
+        <input type="number" id="angka2" placeholder="Number 2">
+        <button type="button" onclick="aritmatika()">=</button>
+
+        <input type="number" id="hasil">
+        
+    </div>
+</body>
+</html>
+
