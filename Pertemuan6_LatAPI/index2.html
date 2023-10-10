@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomat Busuk</title>
+</head>
+<body>
+    <div class="movies"></div>
+    <form name="film">
+        <input id="subject">
+        <button type="button" id="searchButton">Search</button>
+    </form>
+
+    <script>
+        const searchButton = document.getElementById('searchButton');
+
+        searchButton.addEventListener('click', function() {
+            const subject = document.getElementById('subject').value;
+            
+            fetch(`https://imdb8.p.rapidapi.com/auto-complete?q=${subject}`, {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': '92f7c80da0mshf8b2cbcbceda573p1334e6jsn3b3a29f8f8c0',
+                    'X-RapidAPI-Host': 'imdb8.p.rapidapi.com'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                const list = data.d;
+                const moviesContainer = document.querySelector('.movies');
+                moviesContainer.innerHTML = '';
+
+                list.forEach(item => {
+                    const name = item.l;
+                    const movie = `<h2>${name}</h2>`;
+                    moviesContainer.innerHTML += movie;
+                });
+            })
+            .catch(err => {
+                console.error(err);
+            });
+        });
+    </script>
+</body>
+</html>
